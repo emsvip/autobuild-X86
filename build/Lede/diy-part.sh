@@ -30,7 +30,7 @@ export OpenClash_branch="master"            # OpenClash代码选择分支（mast
 export OpenClash_Core="0"                   # 编译固件增加OpenClash时,把核心下载好,核心为3MB左右大小(1为启用命令,填0为不需要核心)
 
 # 个性签名,默认增加年月日[$(TZ=UTC-8 date "+%Y.%m.%d")]
-# export Customized_Information="$(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
+export Customized_Information="EmsVIP compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ_PATH"  # 个性签名,你想写啥就写啥，(填0为不作修改)
 
 # 更换固件内核
 export Replace_Kernel="5.15"                    # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核版本号,填0为不作修改)
@@ -48,7 +48,7 @@ export Disable_53_redirection="0"            # 删除DNS强制重定向53端口�
 export Cancel_running="0"                    # 取消路由器每天跑分任务(个别源码本身不带此功能)(1为启用命令,填0为不作修改)
 
 # 增加个性名字 ${Author} 默认为你的github帐号,修改时候把 ${Author} 替换成你要的
-sed -i "s/OpenWrt /EmsVIP compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ_PATH 
+# sed -i "s/OpenWrt /EmsVIP compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ_PATH 
 
 # 删除默认防火墙
 sed -i '/to-ports 53/d' "$ZZZ_PATH"
@@ -58,11 +58,13 @@ cat >"$CLEAR_PATH" <<-EOF
 packages
 config.buildinfo
 feeds.buildinfo
+profiles.json
 openwrt-x86-64-generic-kernel.bin
 openwrt-x86-64-generic.manifest
 openwrt-x86-64-generic-squashfs-rootfs.img.gz
 Lede-x86-64-generic-squashfs-combined.img.gz
 Lede-x86-64-generic-squashfs-combined-efi.img.gz
+x86-64-generic-squashfs-combined.qcow2
 sha256sums
 version.buildinfo
 ipk.tar.gz
