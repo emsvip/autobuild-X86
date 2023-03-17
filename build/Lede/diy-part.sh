@@ -17,7 +17,7 @@ export Default_theme="argon"                # 多主题时,选择某主题为默
 sed -i '/to-ports 53/d' "$ZZZ_PATH"
 
 # 个性签名,默认增加年月日[$(TZ=UTC-8 date "+%Y.%m.%d")]
-export Customized_Information="EmsVIP compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g"  # 个性签名,你想写啥就写啥，(填0为不作修改)
+export Customized_Information="EmsVIP compiled in $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为不作修改)
 
 # 更换固件内核
 export Replace_Kernel="5.15"                    # 更换内核版本,在对应源码的[target/linux/架构]查看patches-x.x,看看x.x有啥就有啥内核了(填入内核版本号,填0为不作修改)
